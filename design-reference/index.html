@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plenary — Your Moments, Our Tickets</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="mouse-glow" id="mouseGlow"></div>
+
+<header class="nav">
+  <a class="logo" href="./index.html"><span class="logo-shape"><i></i><i></i></span><b>PLENARY</b></a>
+  <nav>
+    <a href="#home">Home</a><a href="#explore">Events</a><a href="#categories">Categories</a><a href="#seller">For Seller</a><a href="#about">About</a>
+  </nav>
+  <div class="nav-right"><button class="search-icon" id="focusSearch">⌕</button><a class="login-chip" href="./buyer-login.html">Log in</a></div>
+  <button class="menu-btn" id="menuBtn">☰</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="blob blob-a"></div><div class="blob blob-b"></div>
+  <div class="hero-text reveal">
+    <p class="eyebrow">YOUR MOMENTS, OUR TICKETS</p>
+    <h1 class="interactive-text" data-letter-hover>Find Your Next <span>Experience</span></h1>
+    <p class="hero-desc">Dari konser, teater, hingga event seru lainnya,<br>semua ada di Plenary. Temukan dan pesan<br>tiket favoritmu dengan mudah.</p>
+    <div class="search-box" id="searchBox">
+      <div class="search-main">⌕ <input id="eventSearch" placeholder="Cari event, konser, teater..."></div>
+      <button class="location">⌖ Semua Lokasi <span>⌄</span></button>
+      <button class="go" data-target="#explore">→</button>
+    </div>
+    <button class="primary" data-target="#explore">Jelajahi Event <span>→</span></button>
+  </div>
+
+  <div class="hero-art reveal delay">
+    <div class="orbit"></div>
+    <div class="hero-photo tilt">
+      <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=85" alt="Suasana konser">
+      <div class="shine"></div>
+    </div>
+    <div class="date-float"><strong>12</strong><small>OCT</small></div>
+    <div class="event-float"><b>Music Concert</b><small>Bandung</small></div>
+    <div class="plus">+</div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="heading">
+    <div><span class="eyebrow">DISCOVER</span><h2 class="interactive-text" data-letter-hover>Kategori Populer</h2><p>Pilih kategori yang kamu suka dan temukan event terbaik.</p></div>
+    <a href="#explore" class="more">Lihat Semua →</a>
+  </div>
+  <div class="categories">
+    <button class="category active" data-cat="all"><span>♫</span>Konser</button>
+    <button class="category" data-cat="theater"><span>◈</span>Teater</button>
+    <button class="category" data-cat="workshop"><span>✦</span>Workshop</button>
+    <button class="category" data-cat="festival"><span>✿</span>Festival</button>
+    <button class="category" data-cat="pameran"><span>▧</span>Pameran</button>
+    <button class="category" data-cat="komedi"><span>☺</span>Komedi</button>
+    <button class="category" data-cat="olahraga"><span>◉</span>Olahraga</button>
+    <button class="category" data-cat="lainnya"><span>•••</span>Lainnya</button>
+  </div>
+</section>
+
+<section class="section explore" id="explore">
+  <div class="heading">
+    <div><span class="eyebrow">EXPLORE</span><h2 class="interactive-text" data-letter-hover>Event Pilihan Untukmu</h2><p>Jangan lewatkan event menarik yang sudah kami pilih khusus untukmu.</p></div>
+    <a href="#explore" class="more">Lihat Semua →</a>
+  </div>
+  <div class="events" id="events">
+    <article class="event" data-cat="all konser"><div class="event-img"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85" alt="Music Night Festival"><span class="date">12<small>OCT</small></span><button class="heart">♡</button><div class="img-hover">Lihat Event <span>→</span></div></div><div class="event-body"><h3>Music Night Festival</h3><p>⌖ Bandung</p><div><b>Rp 150.000</b><button class="add">+</button></div></div></article>
+    <article class="event" data-cat="theater"><div class="event-img"><img src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&q=85" alt="Theater Langit Senja"><span class="date">19<small>OCT</small></span><button class="heart">♡</button><div class="img-hover">Lihat Event <span>→</span></div></div><div class="event-body"><h3>Theater: Langit Senja</h3><p>⌖ Jakarta</p><div><b>Rp 120.000</b><button class="add">+</button></div></div></article>
+    <article class="event" data-cat="workshop"><div class="event-img"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=85" alt="Creative Workshop"><span class="date">25<small>OCT</small></span><button class="heart">♡</button><div class="img-hover">Lihat Event <span>→</span></div></div><div class="event-body"><h3>Creative Workshop</h3><p>⌖ Yogyakarta</p><div><b>Rp 85.000</b><button class="add">+</button></div></div></article>
+    <article class="event" data-cat="pameran"><div class="event-img"><img src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=900&q=85" alt="Art Exhibition"><span class="date">02<small>NOV</small></span><button class="heart">♡</button><div class="img-hover">Lihat Event <span>→</span></div></div><div class="event-body"><h3>Art Exhibition</h3><p>⌖ Jakarta</p><div><b>Rp 75.000</b><button class="add">+</button></div></div></article>
+  </div>
+</section>
+
+<section class="seller" id="seller">
+  <div class="seller-copy"><span class="eyebrow">FOR SELLER</span><h2 class="interactive-text" data-letter-hover>Punya Event untuk Dijual?</h2><p>Jangan biarkan ide bagus berhenti di catatan. Kelola dan jual tiketmu dengan mudah di Plenary.</p><a class="primary" href="./seller-login.html">Jadi Seller <span>→</span></a></div>
+  <div class="dash-preview"><div class="dash-head"><b>PLENARY</b><span>Dashboard</span></div><div class="stats"><div><b>10K+</b><small>Event</small></div><div><b>50K+</b><small>Seller</small></div></div><div class="bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+</section>
+
+<section class="section" id="about">
+  <div class="heading"><div><span class="eyebrow">HOW IT WORKS</span><h2 class="interactive-text" data-letter-hover>Cara Kerja Plenary</h2><p>Mudah, cepat, dan aman.</p></div><a href="#home" class="more">Kembali ke Atas ↑</a></div>
+  <div class="steps">
+    <div class="step"><span>01</span><i>⌕</i><h3>Cari Event</h3><p>Temukan event favoritmu di berbagai kategori.</p></div>
+    <div class="step"><span>02</span><i>▣</i><h3>Pilih &amp; Beli</h3><p>Pilih tiket yang sesuai lalu lakukan pembelian.</p></div>
+    <div class="step"><span>03</span><i>♧</i><h3>Dapatkan Tiket</h3><p>Tiket akan dikirim ke email dan siap digunakan.</p></div>
+  </div>
+</section>
+
+<section class="statement"><span class="eyebrow">YOUR MOMENTS, OUR TICKETS.</span><h2 class="interactive-text" data-letter-hover>LET'S MAKE GREAT MOMENTS TOGETHER</h2></section>
+</main>
+
+<footer class="footer"><div><a class="logo" href="#home"><span class="logo-shape"><i></i><i></i></span><b>PLENARY</b></a><p>Your moments, our tickets.</p></div><div><b>Menu</b><a href="#explore">Events</a><a href="#categories">Categories</a><a href="#seller">For Seller</a><a href="#about">About</a></div><div><b>Bantuan</b><a href="#">FAQ</a><a href="#">Contact</a><a href="#">Terms &amp; Condition</a><a href="#">Privacy Policy</a></div><div><b>Login</b><a href="./buyer-login.html">Buyer</a><a href="./seller-login.html">Seller</a><a href="./admin-login.html">Admin</a></div></footer>
+<div class="toast" id="toast"></div>
+<script src="./script.js"></script>
+</body>
+</html>

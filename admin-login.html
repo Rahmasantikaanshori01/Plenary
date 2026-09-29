@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Plenary — Admin Login</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./login.css"
+    >
+    
+
+</head>
+
+<body class="login-page admin-page">
+
+    <div class="login-background"></div>
+
+
+    <a href="./index.html" class="login-brand">
+
+        <span class="logo-mark">
+
+            <span></span>
+            <span></span>
+
+        </span>
+
+        PLENARY
+
+    </a>
+
+
+    <div class="login-signup">
+
+        Don't have an account?
+
+        <a href="#">
+            Sign up
+        </a>
+
+    </div>
+
+
+    <main class="login-card">
+
+
+        <section class="login-intro">
+
+            <h1 class="login-title">
+
+                Welcome Back,
+
+                <span>
+                    Admin
+                </span>
+
+            </h1>
+
+
+            <p class="login-description">
+
+                Log in to manage users, events,
+                reports and system settings.
+
+            </p>
+
+
+            <div class="login-slogan">
+
+                Better
+                <br>
+
+                Events
+                <br>
+
+                Together
+
+            </div>
+
+        </section>
+
+
+        <section class="login-form-wrapper">
+
+            <form
+                class="login-form"
+                data-role="Admin"
+            >
+
+                <div class="login-field">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                    >
+
+                        <path
+                            d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="7"
+                            r="4"
+                        />
+
+                    </svg>
+
+                    <input
+                        type="text"
+                        placeholder="Email or Phone Number"
+                    >
+
+                </div>
+
+
+                <div class="login-field">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                    >
+
+                        <rect
+                            x="4"
+                            y="10"
+                            width="16"
+                            height="11"
+                            rx="2"
+                        />
+
+                        <path
+                            d="M8 10V7a4 4 0 0 1 8 0v3"
+                        />
+
+                    </svg>
+
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Password"
+                    >
+
+                </div>
+
+
+                <div class="login-options">
+
+                    <label class="remember">
+
+                        <input type="checkbox">
+
+                        Remember me
+
+                    </label>
+
+
+                    <a
+                        href="#"
+                        class="forgot-password"
+                    >
+                        Forgot password?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+
+                    <span>
+                        Login&nbsp; →
+                    </span>
+
+                </button>
+
+
+                <div class="login-or">
+                    or continue with
+                </div>
+
+
+                <div class="social-buttons">
+
+                    <button
+                        type="button"
+                        class="social-button"
+                        data-provider="Google"
+                    >
+                        G
+                    </button>
+
+                    <button
+                        type="button"
+                        class="social-button"
+                        data-provider="Apple"
+                    >
+                        
+                    </button>
+
+                    <button
+                        type="button"
+                        class="social-button"
+                        data-provider="Email"
+                    >
+                        ✉
+                    </button>
+
+                </div>
+
+
+                <div class="login-note">
+
+                    <div class="note-icon">
+                        ⚙
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            System Access
+                        </strong>
+
+                        Keep your platform secure
+                        and running smoothly.
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <nav class="role-switcher">
+
+        <a href="./buyer-login.html">
+            Buyer
+        </a>
+
+        <a href="./seller-login.html">
+            Seller
+        </a>
+
+        <a
+            href="./admin-login.html"
+            class="active"
+        >
+            Admin
+        </a>
+
+    </nav>
+
+
+    <script src="./login.js"></script>
+
+</body>
+
+</html>

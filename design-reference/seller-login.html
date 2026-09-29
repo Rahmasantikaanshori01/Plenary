@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Plenary — Seller Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet"
+    >
+
+    
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: "DM Sans", Arial, sans-serif;
+            background: #241d20;
+            color: white;
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+        .login-page {
+
+            --primary: #e29a83;
+            --secondary: #f5c4ae;
+            --accent: #d88973;
+
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 70px 30px;
+
+            overflow: hidden;
+
+            background: #241d20;
+        }
+
+
+        /* =====================================================
+           BACKGROUND
+        ===================================================== */
+
+        .background {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 0;
+
+            background-image:
+                url("./assets/merah.avif");
+
+            background-size: cover;
+
+            background-position: center;
+
+            transform: scale(1.05);
+
+            transition: transform 1s ease;
+        }
+
+
+        .background::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(40, 23, 25, .88) 0%,
+                    rgba(83, 42, 43, .48) 50%,
+                    rgba(28, 18, 20, .83) 100%
+                );
+        }
+
+
+        .background::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            left: -180px;
+            top: -190px;
+
+            border-radius: 50%;
+
+            background: #d98a75;
+
+            filter: blur(120px);
+
+            opacity: .20;
+        }
+
+
+        /* =====================================================
+           BRAND
+        ===================================================== */
+
+        .brand {
+
+            position: absolute;
+
+            top: 35px;
+            left: 50px;
+
+            z-index: 10;
+
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+
+        .logo {
+
+            position: relative;
+
+            width: 18px;
+            height: 18px;
+
+            transform: rotate(45deg);
+        }
+
+
+        .logo-one,
+        .logo-two {
+
+            position: absolute;
+
+            width: 11px;
+            height: 11px;
+
+            border-radius: 2px;
+        }
+
+
+        .logo-one {
+
+            left: 0;
+            top: 0;
+
+            background: #f3bda9;
+        }
+
+
+        .logo-two {
+
+            right: 0;
+            bottom: 0;
+
+            background: #d9a9a0;
+        }
+
+
+        /* =====================================================
+           SIGN UP
+        ===================================================== */
+
+        .signup {
+
+            position: absolute;
+
+            top: 37px;
+            right: 50px;
+
+            z-index: 10;
+
+            color: rgba(255,255,255,.72);
+
+            font-size: 11px;
+        }
+
+
+        .signup a {
+
+            color: white;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: .3s ease;
+        }
+
+
+        .signup a:hover {
+
+            color: var(--secondary);
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .card {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 930px;
+
+            max-width: 92vw;
+
+            min-height: 550px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            padding: 43px;
+
+            border-radius: 22px;
+
+            border: 1px solid rgba(255,255,255,.43);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.21),
+                    rgba(255,255,255,.065)
+                );
+
+            backdrop-filter: blur(25px);
+
+            -webkit-backdrop-filter: blur(25px);
+
+            box-shadow:
+                0 35px 100px rgba(0,0,0,.45),
+                inset 0 1px 0 rgba(255,255,255,.25);
+
+            overflow: hidden;
+
+            animation: cardIn .8s ease both;
+        }
+
+
+        .card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 470px;
+            height: 470px;
+
+            right: -240px;
+            bottom: -250px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,.18),
+                    transparent 68%
+                );
+        }
+
+
+        .card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            left: -160px;
+            top: -160px;
+
+            border-radius: 50%;
+
+            background: #d98d78;
+
+            filter: blur(80px);
+
+            opacity: .17;
+        }
+
+
+        @keyframes cardIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px)
+                    scale(.96);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           INTRO
+        ===================================================== */
+
+        .intro {
+
+            position: relative;
+
+            z-index: 3;
+
+            align-self: start;
+
+            padding: 15px;
+        }
+
+
+        .intro h1 {
+
+            font-size: 40px;
+
+            line-height: 1;
+
+            letter-spacing: -2px;
+
+            font-weight: 600;
+        }
+
+
+        .intro h1 span {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 50px;
+
+            font-style: italic;
+
+            font-weight: 400;
+
+            letter-spacing: -1px;
+
+            color: var(--secondary);
+        }
+
+
+        .intro p {
+
+            max-width: 320px;
+
+            margin-top: 16px;
+
+            color: rgba(255,255,255,.80);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           SLOGAN
+        ===================================================== */
+
+        .slogan {
+
+            position: absolute;
+
+            top: 103px;
+            right: 5px;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 26px;
+
+            font-style: italic;
+
+            line-height: .95;
+
+            color: var(--secondary);
+
+            transform: rotate(-7deg);
+
+            animation:
+                floating 4s
+                ease-in-out
+                infinite;
+        }
+
+
+        .slogan::after {
+
+            content: "✦";
+
+            position: absolute;
+
+            right: -20px;
+            top: -13px;
+
+            color: white;
+
+            font-family: Arial;
+
+            font-size: 13px;
+        }
+
+
+        @keyframes floating {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(-7deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-8px)
+                    rotate(-4deg);
+            }
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-area {
+
+            position: relative;
+
+            z-index: 5;
+
+            width: 100%;
+
+            max-width: 390px;
+
+            justify-self: end;
+
+            padding: 0 10px;
+        }
+
+
+        /* =====================================================
+           FIELD
+        ===================================================== */
+
+        .field {
+
+            width: 100%;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            padding: 0 14px;
+
+            margin-bottom: 11px;
+
+            border:
+
+                1px solid
+                rgba(255,255,255,.48);
+
+            border-radius: 13px;
+
+            background:
+                rgba(255,255,255,.07);
+
+            transition: .3s ease;
+        }
+
+
+        .field:hover {
+
+            background:
+                rgba(255,255,255,.12);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .field:focus-within {
+
+            border-color: white;
+
+            background:
+                rgba(255,255,255,.14);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(255,255,255,.05);
+        }
+
+
+        .field svg {
+
+            width: 16px;
+            height: 16px;
+
+            flex-shrink: 0;
+
+            color:
+                rgba(255,255,255,.82);
+        }
+
+
+        .field input {
+
+            width: 100%;
+
+            border: none;
+
+            outline: none;
+
+            background: transparent;
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 11px;
+        }
+
+
+        .field input::placeholder {
+
+            color:
+                rgba(255,255,255,.62);
+        }
+
+
+        /* =====================================================
+           OPTIONS
+        ===================================================== */
+
+        .options {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin:
+                12px 1px 15px;
+
+            color:
+                rgba(255,255,255,.78);
+
+            font-size: 9px;
+        }
+
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            cursor: pointer;
+        }
+
+
+        .remember input {
+
+            appearance: none;
+
+            width: 12px;
+            height: 12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.7);
+
+            border-radius: 3px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            cursor: pointer;
+        }
+
+
+        .remember input:checked {
+
+            background:
+                var(--primary);
+
+            border-color:
+                var(--primary);
+        }
+
+
+        .remember input:checked::after {
+
+            content: "✓";
+
+            display: block;
+
+            color: white;
+
+            text-align: center;
+
+            font-size: 9px;
+
+            line-height: 11px;
+        }
+
+
+        .forgot {
+
+            color:
+                rgba(255,255,255,.84);
+
+            text-decoration: none;
+
+            transition: .3s ease;
+        }
+
+
+        .forgot:hover {
+
+            color:
+                var(--secondary);
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .login-button {
+
+            width: 100%;
+
+            height: 47px;
+
+            border: none;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    105deg,
+                    #df927b,
+                    #f2baa6
+                );
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 14px 30px
+                rgba(0,0,0,.20);
+
+            transition: .3s ease;
+        }
+
+
+        .login-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            filter:
+                brightness(1.08);
+
+            box-shadow:
+                0 19px 40px
+                rgba(0,0,0,.30);
+        }
+
+
+        .login-button span {
+
+            display: inline-block;
+
+            transition: .3s ease;
+        }
+
+
+        .login-button:hover span {
+
+            transform:
+                translateX(6px);
+        }
+
+
+        /* =====================================================
+           OR
+        ===================================================== */
+
+        .or {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin: 17px 0;
+
+            color:
+                rgba(255,255,255,.64);
+
+            font-size: 9px;
+        }
+
+
+        .or::before,
+        .or::after {
+
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background:
+                rgba(255,255,255,.18);
+        }
+
+
+        /* =====================================================
+           SOCIAL
+        ===================================================== */
+
+        .social {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+        }
+
+
+        .social button {
+
+            width: 48px;
+            height: 37px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.20);
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.08);
+
+            color: white;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: .3s ease;
+        }
+
+
+        .social button:hover {
+
+            transform:
+                translateY(-4px);
+
+            background:
+                rgba(255,255,255,.17);
+
+            border-color:
+                rgba(255,255,255,.45);
+        }
+
+
+        /* =====================================================
+           NOTE
+        ===================================================== */
+
+        .note {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: 17px;
+
+            padding-top: 15px;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,.14);
+
+            color:
+                rgba(255,255,255,.68);
+
+            font-size: 9px;
+
+            line-height: 1.45;
+        }
+
+
+        .note-icon {
+
+            width: 33px;
+            height: 33px;
+
+            flex-shrink: 0;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.12);
+
+            color:
+                var(--secondary);
+        }
+
+
+        .note strong {
+
+            display: block;
+
+            color: white;
+
+            margin-bottom: 2px;
+        }
+
+
+        /* =====================================================
+           ROLE NAVIGATION
+        ===================================================== */
+
+        .roles {
+
+            position: fixed;
+
+            z-index: 20;
+
+            left: 50%;
+            bottom: 18px;
+
+            transform:
+                translateX(-50%);
+
+            display: flex;
+
+            gap: 4px;
+
+            padding: 5px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.18);
+
+            border-radius: 14px;
+
+            background:
+                rgba(20,16,22,.60);
+
+            backdrop-filter: blur(15px);
+        }
+
+
+        .roles a {
+
+            padding:
+                8px 13px;
+
+            border-radius: 9px;
+
+            color:
+                rgba(255,255,255,.68);
+
+            text-decoration: none;
+
+            font-size: 9px;
+
+            transition: .3s ease;
+        }
+
+
+        .roles a:hover,
+        .roles a.active {
+
+            color: white;
+
+            background:
+                rgba(255,255,255,.17);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .card {
+
+                width: 560px;
+
+                grid-template-columns: 1fr;
+
+                min-height: auto;
+
+                padding: 35px 30px;
+            }
+
+
+            .intro {
+
+                margin-bottom: 25px;
+
+                padding: 0;
+            }
+
+
+            .slogan {
+
+                display: none;
+            }
+
+
+            .form-area {
+
+                max-width: none;
+
+                padding: 0;
+            }
+        }
+
+
+        @media (max-width: 560px) {
+
+            .login-page {
+
+                padding:
+                    85px 15px 75px;
+            }
+
+
+            .brand {
+
+                top: 25px;
+                left: 22px;
+            }
+
+
+            .signup {
+
+                top: 27px;
+                right: 22px;
+            }
+
+
+            .card {
+
+                padding: 28px 20px;
+
+                border-radius: 18px;
+            }
+
+
+            .intro h1 {
+
+                font-size: 32px;
+            }
+
+
+            .intro h1 span {
+
+                font-size: 41px;
+            }
+
+
+            .roles a {
+
+                padding:
+                    7px 9px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="login-page">
+
+
+        <!-- BACKGROUND -->
+
+        <div class="background"></div>
+
+
+        <!-- BRAND -->
+
+        <a
+            href="index.html"
+            class="brand"
+        >
+
+            <div class="logo">
+
+                <span class="logo-one"></span>
+
+                <span class="logo-two"></span>
+
+            </div>
+
+            PLENARY
+
+        </a>
+
+
+        <!-- SIGN UP -->
+
+        <div class="signup">
+
+            Don't have an account?
+
+            <a href="#">
+                Sign up
+            </a>
+
+        </div>
+
+
+        <!-- LOGIN CARD -->
+
+        <section class="card">
+
+
+            <!-- INTRODUCTION -->
+
+            <div class="intro">
+
+                <h1>
+
+                    Welcome Back,
+
+                    <span>
+                        Seller
+                    </span>
+
+                </h1>
+
+
+                <p>
+
+                    Log in to manage your events,
+                    tickets, and grow your business.
+
+                </p>
+
+
+                <div class="slogan">
+
+                    Create
+                    <br>
+
+                    Shape
+                    <br>
+
+                    Grow
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="form-area">
+
+                <form id="sellerForm">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="field">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                        >
+
+                            <path
+                                d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                            />
+
+                            <circle
+                                cx="12"
+                                cy="7"
+                                r="4"
+                            />
+
+                        </svg>
+
+
+                        <input
+                            type="text"
+                            placeholder="Email or Phone Number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="field">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                        >
+
+                            <rect
+                                x="4"
+                                y="10"
+                                width="16"
+                                height="11"
+                                rx="2"
+                            />
+
+                            <path
+                                d="M8 10V7a4 4 0 0 1 8 0v3"
+                            />
+
+                        </svg>
+
+
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="options">
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                            >
+
+                            Remember me
+
+                        </label>
+
+
+                        <a
+                            href="#"
+                            class="forgot"
+                        >
+
+                            Forgot password?
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="login-button"
+                    >
+
+                        <span>
+                            Login&nbsp; →
+                        </span>
+
+                    </button>
+
+
+                    <!-- OR -->
+
+                    <div class="or">
+
+                        or continue with
+
+                    </div>
+
+
+                    <!-- SOCIAL -->
+
+                    <div class="social">
+
+                        <button
+                            type="button"
+                            aria-label="Google"
+                        >
+                            G
+                        </button>
+
+
+                        <button
+                            type="button"
+                            aria-label="Apple"
+                        >
+                            
+                        </button>
+
+
+                        <button
+                            type="button"
+                            aria-label="Email"
+                        >
+                            ✉
+                        </button>
+
+                    </div>
+
+
+                    <!-- NOTE -->
+
+                    <div class="note">
+
+                        <div class="note-icon">
+                            ✦
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Are you a new seller?
+                            </strong>
+
+                            Start selling your events
+                            and reach a wider audience.
+
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ROLE SWITCHER -->
+
+        <nav class="roles">
+
+            <a href="buyer-login.html">
+                Buyer
+            </a>
+
+
+            <a
+                href="seller-login.html"
+                class="active"
+            >
+                Seller
+            </a>
+
+
+            <a href="admin-login.html">
+                Admin
+            </a>
+
+        </nav>
+
+
+    </main>
+
+
+    <script>
+
+        /* =====================================================
+           BACKGROUND PARALLAX
+        ===================================================== */
+
+        const page =
+            document.querySelector(".login-page");
+
+        const background =
+            document.querySelector(".background");
+
+
+        page.addEventListener(
+            "mousemove",
+            function (event) {
+
+                const x =
+                    (
+                        event.clientX /
+                        window.innerWidth -
+                        .5
+                    ) * 10;
+
+
+                const y =
+                    (
+                        event.clientY /
+                        window.innerHeight -
+                        .5
+                    ) * 7;
+
+
+                background.style.transform =
+                    `scale(1.08) translate(${x}px, ${y}px)`;
+
+            }
+        );
+
+
+        page.addEventListener(
+            "mouseleave",
+            function () {
+
+                background.style.transform =
+                    "scale(1.05) translate(0, 0)";
+
+            }
+        );
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        document
+            .getElementById("sellerForm")
+            .addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    const button =
+                        document.querySelector(
+                            ".login-button"
+                        );
+
+
+                    const original =
+                        button.innerHTML;
+
+
+                    button.innerHTML =
+                        "<span>Logging in...</span>";
+
+
+                    button.disabled = true;
+
+
+                    setTimeout(
+                        function () {
+
+                            button.innerHTML =
+                                original;
+
+                            button.disabled = false;
+
+                        },
+                        1000
+                    );
+
+                }
+            );
+
+    </script>
+
+
+</body>
+
+</html>
